@@ -8,6 +8,7 @@ const schema = Joi.object({
       payload: Joi.object().optional(),
       params: Joi.object().optional(),
       query: Joi.object().optional(),
+      errorHandler: Joi.function().optional(),
     }).optional(),
     handler: Joi.function().minArity(2).maxArity(3).required(),
   }).required(),

@@ -12,7 +12,7 @@ export default async (app, path, options) => {
 
   st.logger.debug(`ExpressRouteConfig Options: ${JSON.stringify(options)}`);
 
-  if (options.parsePayload) {
+  if (options?.parsePayload) {
     app.use(bodyParser.urlencoded({ extended: true }));
     st.logger.debug('Enable Body Parser');
   }
@@ -20,7 +20,7 @@ export default async (app, path, options) => {
   const files = glob.sync(`${path}/**/*.js`, {
     nodir: true,
     follow: true,
-    ignore: options.ignore || [],
+    ignore: options?.ignore || [],
   });
 
   const procFiles = await Promise.all(files.map((f) => processFile(f, st)));

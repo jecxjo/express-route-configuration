@@ -7,5 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Initial Commit
+- More options, unit tests, and readme
 
 [Unreleased]: https://github.com/jecxjo/express-route-configuration/compare/v0.0.0...HEAD

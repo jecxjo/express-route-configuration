@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import schema from '../../../middleware/express-route-config/schema.js';
+import schema from '../schema.js';
 
 describe('valid schema', () => {
   test('minimal requirements', () => {
