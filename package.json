@@ -1,6 +1,6 @@
 {
   "name": "express-route-configuration",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Express middleware to auto detect routes",
   "main": "index.js",
   "type": "module",
