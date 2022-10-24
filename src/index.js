@@ -10,6 +10,7 @@ export default async (app, path, options) => {
     logger: Logger(options),
   };
 
+  st.logger.debug(`Searching ${path}`);
   st.logger.debug(`ExpressRouteConfig Options: ${JSON.stringify(options)}`);
 
   if (options?.parsePayload) {

@@ -17,6 +17,7 @@ export default async (file, st) => {
   Object.keys(module).forEach((k) => {
     const check = schema.checkSchema(module[k]);
     if (check.error === undefined) {
+      st.logger.debug(`Importing Route: ${k}`);
       res.push(module[k]);
     }
   });
