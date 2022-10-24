@@ -2,17 +2,17 @@
   "name": "express-route-configuration",
   "version": "0.1.2",
   "description": "Express middleware to auto detect routes",
-  "main": "dist/cjs/index.js",
+  "main": "dist/cjs/wrapper.js",
   "module": "dist/mjs/index.js",
   "exports": {
     ".": {
       "import": "./dist/mjs/index.js",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/wrapper.js"
     }
   },
   "scripts": {
     "clean": "rm -rfv dist/*",
-    "build:mjs": "rm -rfv dist/mjs && mkdir -p dist/mjs && cp -rfv src/* dist/mjs",
+    "build:mjs": "rm -rfv dist/mjs && mkdir -p dist/mjs && cp -rfv src/*.js dist/mjs",
     "build:cjs": "rm -rfv dist/cjs && mkdir -p dist/cjs && babel ./src --out-dir ./dist/cjs",
     "build": "npm run build:mjs && npm run build:cjs && ./fixup.sh",
     "lint": "eslint src",
