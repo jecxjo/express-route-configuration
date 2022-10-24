@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 0.1.3 - 2022-10-24
+
 ### Fixed
 
 - Added wrapper for CommonJS to not require `.default()`
@@ -34,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial Commit
 - More options, unit tests, and readme
 
-[unreleased]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.2...HEAD
+[unreleased]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.3...HEAD
+[0.1.2]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.2...v0.1.3
 [0.1.1]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.1...v0.1.2
 [0.1.0]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.0...v0.1.1
