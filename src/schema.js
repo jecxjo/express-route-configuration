@@ -1,7 +1,9 @@
 import Joi from 'joi';
 
 const schema = Joi.object({
-  method: Joi.string().pattern(/^GET$|^POST$|^PUT$|^DELETE$|^PATCH$/).required(),
+  method: Joi.string()
+    .pattern(/^GET$|^POST$|^PUT$|^DELETE$|^PATCH$/)
+    .required(),
   path: Joi.string().required(),
   config: Joi.object({
     validate: Joi.object({

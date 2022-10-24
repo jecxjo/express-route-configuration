@@ -1,4 +1,5 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -6,19 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## 0.1.2 - 2022-10-24
 ### Added
+
+- Added Husky support for git hooks
+
+## 0.1.2 - 2022-10-24
+
+### Added
+
 - Added CommonJS Support
 
 ## 0.1.1 - 2022-10-23
+
 ### Fixed
+
 - Wrong license, should be ISC
 
 ## 0.1.0 - 2022-10-23
+
 ### Added
+
 - Initial Commit
 - More options, unit tests, and readme
 
-[Unreleased]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.2...HEAD
+[unreleased]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.2...HEAD
 [0.1.1]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.1...v0.1.2
 [0.1.0]: https://github.com/jecxjo/express-route-configuration/compare/v0.1.0...v0.1.1

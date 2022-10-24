@@ -33,8 +33,7 @@ describe('testing working routes', () => {
         parsePayload: true,
       });
 
-      const res = await supertest(app)
-        .get('/working');
+      const res = await supertest(app).get('/working');
 
       expect(res.status).toEqual(200);
       expect(res.body).toStrictEqual({ status: 0 });
@@ -45,8 +44,7 @@ describe('testing working routes', () => {
         parsePayload: true,
       });
 
-      const res = await supertest(app)
-        .get('/not-working');
+      const res = await supertest(app).get('/not-working');
 
       expect(res.status).toEqual(404);
     });
@@ -111,8 +109,7 @@ describe('testing working routes', () => {
       });
 
       // TODO: Check payload data once supertest bug fixed
-      const res = await supertest(app)
-        .delete('/working/delete');
+      const res = await supertest(app).delete('/working/delete');
 
       expect(res.status).toEqual(200);
     });

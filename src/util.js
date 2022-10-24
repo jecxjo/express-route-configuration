@@ -5,4 +5,4 @@ export function toRelativePath(abs) {
   return path.relative(process.cwd(), abs);
 }
 
-export default { };
+export default {};

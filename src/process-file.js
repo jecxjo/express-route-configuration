@@ -2,14 +2,18 @@ import schema from './schema.js';
 import { toRelativePath } from './util.js';
 
 const handleImportFailure = (err, file, st) => {
-  st.logger.error(`Failed loading File: ${toRelativePath(file)} - ${err.message}`);
+  st.logger.error(
+    `Failed loading File: ${toRelativePath(file)} - ${err.message}`
+  );
   return {};
 };
 
 export default async (file, st) => {
   const res = [];
   st.logger.debug(`Processing ${toRelativePath(file)}`);
-  let module = await import(file).catch((e) => handleImportFailure(e, file, st));
+  let module = await import(file).catch((e) =>
+    handleImportFailure(e, file, st)
+  );
 
   if (module.default !== undefined) {
     module = module.default;
