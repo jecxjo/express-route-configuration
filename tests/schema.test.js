@@ -7,7 +7,11 @@ describe('valid schema', () => {
       method: 'GET',
       path: '/hello',
       config: {
-        handler: (req, res, next) => { }, /* eslint-disable-line no-unused-vars */
+        handler: (
+          req,
+          res,
+          next
+        ) => {} /* eslint-disable-line no-unused-vars */,
       },
     };
     const res = schema.checkSchema(obj);
@@ -20,7 +24,11 @@ describe('invalid schema', () => {
     const obj = {
       path: '/hello',
       config: {
-        handler: (req, res, next) => { }, /* eslint-disable-line no-unused-vars */
+        handler: (
+          req,
+          res,
+          next
+        ) => {} /* eslint-disable-line no-unused-vars */,
       },
     };
     const res = schema.checkSchema(obj);

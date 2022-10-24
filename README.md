@@ -7,6 +7,7 @@ auto-detected and the routes created without having to manually set them.
 ## Usage
 
 **server.js**
+
 ```js
 import express from 'express';
 import routeConfig from 'express-route-configuration';
@@ -23,6 +24,7 @@ app.listen(3000);
 ```
 
 **routes/hello.js**
+
 ```js
 import Joi from 'joi';
 
@@ -64,6 +66,7 @@ schema the handler is called.
 - `options`: Additional optional configuration parameters
 
 Additional optional config includes:
+
 - `parsePayload`: If true, use `body-parser` to convert payload body to object
 - `ignore`: An array of paths and files to ignore when search for controllers
 - `validationErrorStatusCode`: The HTTP Status Code to issue when validation fails, normally 422
