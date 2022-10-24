@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import schema from '../schema.js';
+import schema from '../src/schema.js';
 
 describe('valid schema', () => {
   test('minimal requirements', () => {

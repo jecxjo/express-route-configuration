@@ -2,11 +2,20 @@
   "name": "express-route-configuration",
   "version": "0.1.1",
   "description": "Express middleware to auto detect routes",
-  "main": "index.js",
-  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "scripts": {
-    "lint": "eslint .",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --detectOpenHandles"
+    "build:mjs": "rm -rfv dist/mjs && mkdir -p dist/mjs && cp -rfv src/* dist/mjs",
+    "build:cjs": "rm -rfv dist/cjs && mkdir -p dist/cjs && babel ./src --out-dir ./dist/cjs",
+    "build": "npm run build:mjs && npm run build:cjs && ./fixup.sh",
+    "lint": "eslint src",
+    "test": "npm run build:cjs && NODE_OPTIONS=--experimental-vm-modules npx jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -27,7 +36,13 @@
     "joi": "^17.6.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
     "@jest/globals": "^29.2.0",
+    "babel-jest": "^29.2.1",
+    "babel-plugin-transform-import-meta": "^2.2.0",
     "eslint": "^8.25.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",

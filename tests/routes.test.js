@@ -1,17 +1,14 @@
-import {
+const {
   beforeEach,
   afterEach,
   describe,
   expect,
   test,
-} from '@jest/globals';
-import express from 'express';
-import supertest from 'supertest';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import routeConfig from '../index.js';
-
-const DIR_NAME = path.dirname(fileURLToPath(import.meta.url));
+} = require('@jest/globals');
+const express = require('express');
+const supertest = require('supertest');
+const path = require('path');
+const routeConfig = require('../dist/cjs/index.js');
 
 let app = null;
 let shutdown = () => {};
@@ -32,7 +29,7 @@ afterEach(() => {
 describe('testing working routes', () => {
   describe('testing methods', () => {
     test('GET 200', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -44,7 +41,7 @@ describe('testing working routes', () => {
     });
 
     test('GET 404', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -55,7 +52,7 @@ describe('testing working routes', () => {
     });
 
     test('POST 200', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -69,7 +66,7 @@ describe('testing working routes', () => {
     });
 
     test('POST 404', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -82,7 +79,7 @@ describe('testing working routes', () => {
     });
 
     test('PUT 200', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -96,7 +93,7 @@ describe('testing working routes', () => {
     });
 
     test('PUT 404', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -109,7 +106,7 @@ describe('testing working routes', () => {
     });
 
     test('DELETE 200', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -121,7 +118,7 @@ describe('testing working routes', () => {
     });
 
     test('DELETE 404', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -133,7 +130,7 @@ describe('testing working routes', () => {
     });
 
     test('PATCH 200', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -146,7 +143,7 @@ describe('testing working routes', () => {
     });
 
     test('PATCH 404', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -161,7 +158,7 @@ describe('testing working routes', () => {
   describe('validation', () => {
     describe('parameters', () => {
       test('parameters in URL match when all exist', async () => {
-        routeConfig(app, path.join(DIR_NAME, 'routes'), {
+        routeConfig.default(app, path.join(__dirname, 'routes'), {
           parsePayload: true,
         });
 
@@ -174,7 +171,7 @@ describe('testing working routes', () => {
       });
 
       test('when params fail, still success result but error provided to handler', async () => {
-        routeConfig(app, path.join(DIR_NAME, 'routes'), {
+        routeConfig.default(app, path.join(__dirname, 'routes'), {
           parsePayload: true,
         });
 
@@ -187,7 +184,7 @@ describe('testing working routes', () => {
       });
 
       test('returns configured status code when failed', async () => {
-        routeConfig(app, path.join(DIR_NAME, 'routes'), {
+        routeConfig.default(app, path.join(__dirname, 'routes'), {
           parsePayload: true,
           validationErrorStatusCode: 400,
         });
@@ -203,7 +200,7 @@ describe('testing working routes', () => {
 
     describe('query', () => {
       test('query in URL match when all exist', async () => {
-        routeConfig(app, path.join(DIR_NAME, 'routes'), {
+        routeConfig.default(app, path.join(__dirname, 'routes'), {
           parsePayload: true,
         });
 
@@ -216,7 +213,7 @@ describe('testing working routes', () => {
       });
 
       test('query fails when missing required variable', async () => {
-        routeConfig(app, path.join(DIR_NAME, 'routes'), {
+        routeConfig.default(app, path.join(__dirname, 'routes'), {
           parsePayload: true,
         });
 
@@ -229,7 +226,7 @@ describe('testing working routes', () => {
       });
 
       test('query fails when variable is wrong type', async () => {
-        routeConfig(app, path.join(DIR_NAME, 'routes'), {
+        routeConfig.default(app, path.join(__dirname, 'routes'), {
           parsePayload: true,
         });
 
@@ -242,7 +239,7 @@ describe('testing working routes', () => {
       });
 
       test('query fail returns custom status code', async () => {
-        routeConfig(app, path.join(DIR_NAME, 'routes'), {
+        routeConfig.default(app, path.join(__dirname, 'routes'), {
           parsePayload: true,
           validationErrorStatusCode: 400,
         });
@@ -261,7 +258,7 @@ describe('testing working routes', () => {
 
   describe('Configuration Options', () => {
     test('verify route works when not in ignore list', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
       });
 
@@ -272,7 +269,7 @@ describe('testing working routes', () => {
       expect(res.status).toEqual(200);
     });
     test('ignored controller when in arg list', async () => {
-      routeConfig(app, path.join(DIR_NAME, 'routes'), {
+      routeConfig.default(app, path.join(__dirname, 'routes'), {
         parsePayload: true,
         ignore: ['**/ignore.js'],
       });
