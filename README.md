@@ -6,6 +6,10 @@ auto-detected and the routes created without having to manually set them.
 
 ## Usage
 
+Supports both ESM and CommonJS.
+
+### ESM
+
 **server.js**
 
 ```js
@@ -48,6 +52,46 @@ export default {
           res.send(`Hello ${req.params.name}, of unknown age`);
         }
       },
+    },
+  },
+};
+```
+
+### CommonJS
+
+**server.js**
+
+```js
+const express = require('express');
+const routeConfig = require('express-route-configuration');
+const path = require('path');
+
+const app = express();
+
+routeConfig(app, path.join(__dirname, 'routes'));
+
+app.listen(3000);
+```
+
+**routes/hello.js**
+
+```js
+const Joi = require('joi');
+
+exports.hello = {
+  path: '/hello',
+  method: 'GET',
+  config: {
+    validate: {
+      params: Joi.object({
+        name: Joi.string().required(),
+      }),
+      query: Joi.object({
+        age: Joi.number().min(0).max(100).optional(),
+      }),
+    },
+    async handler(req, res) {
+      res.send('Hello world');
     },
   },
 };
