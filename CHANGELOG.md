@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Jest/V8 issue with dynamic imports, added direct import of controller object
+
 ## 0.1.3 - 2022-10-24
 
 ### Fixed

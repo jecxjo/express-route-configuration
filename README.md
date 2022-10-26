@@ -140,3 +140,32 @@ The `path` string follows the express.js format using a colon to define a
 variable, `/path/:variable`.
 
 Validation fields use Joi, documentation [here](https://joi.dev/api/).
+
+## Building
+
+To build both the ESM and CommonJS distribution run the script `npm run build`.
+
+**TODO** Add more details on exactly what happens
+
+## Issue
+
+There is a problem with V8's support of dynamic imports and how `jest` works
+with in band testing. This means using dynamic imports can be hit or miss. As a
+unit test option the main entry point now can take a string path or the
+imported controller module. If your unit tests fail try converting to something
+along these lines.
+
+```js
+
+import express from 'express';
+import configRoutes from 'express-route-configuration'
+import helloRoutes from '../../controller/hello.js'
+
+test('testing routes', async () => {
+  const app = express();
+  configRoutes(app, helloRoutes { debug: true });
+
+  // Normal test accessing routes
+});
+
+```
