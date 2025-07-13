@@ -1,5 +1,7 @@
 # express-route-configuration
 
+**NOTE** LEAVING GITHUB!!! This project has moved to: https://git.sh0.xyz/express-route-configuration.git/
+
 This project is a utility module that allows you to write your route
 configuration and validation in the controller module itself. The modules are
 auto-detected and the routes created without having to manually set them.
